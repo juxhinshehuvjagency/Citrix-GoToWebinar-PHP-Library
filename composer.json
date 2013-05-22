@@ -1,5 +1,5 @@
 {
-    "name": "citrix/GoToWebinarPHP",
+    "name": "citrix/go-to-webinar-php",
     "type": "library",
     "description": "Citrix GoToWebinar API PHP access library.",
     "keywords": ["api","citrix"],
