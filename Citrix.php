@@ -24,7 +24,7 @@ if (!function_exists('json_decode')) {
   throw new Exception('Citrix needs the JSON PHP extension.');
 }
 
-class Citrix_Api
+class Citrix
 {
 	
 	/**
