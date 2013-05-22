@@ -13,8 +13,8 @@
  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
  * License for the specific language governing permissions and limitations
  * under the License.
- https://developer.citrixonline.com/forum/pageing-get-registrants-api
- https://developer.citrixonline.com/forum/resolved-enhancement-oauth-token-expiration-time-extended
+ * https://developer.citrixonline.com/forum/pageing-get-registrants-api
+ * https://developer.citrixonline.com/forum/resolved-enhancement-oauth-token-expiration-time-extended
  */
 
 if (!function_exists('curl_init')) {
@@ -24,7 +24,7 @@ if (!function_exists('json_decode')) {
   throw new Exception('Citrix needs the JSON PHP extension.');
 }
 
-class Citrix
+class Citrix_Api
 {
 	
 	/**
@@ -34,6 +34,8 @@ class Citrix
 		CURLOPT_CONNECTTIMEOUT => 10,
 		CURLOPT_RETURNTRANSFER => true,
 		CURLOPT_TIMEOUT        => 60,
+		CURLOPT_FOLLOWLOCATION	=> true,
+		CURLOPT_USERAGENT		=>	"Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.9.2) Gecko/20100115 Firefox/3.6 (.NET CLR 3.5.30729)",
 	);
 	
 	/**
@@ -226,6 +228,29 @@ class Citrix
 		}
 			
         return $return_array;
+	}	
+	/**
+	* Returns one particular webinar details
+	*
+	* @return array requested webinar
+	*/	
+	function citrixonline_get_webinar($webinarKey) 
+    {
+		if(!$this->organizer_key or !$this->access_token)
+			return 0;
+			
+		$return_array = array();
+
+		$reponse = json_decode($this->make_request("https://api.citrixonline.com/G2W/rest/organizers/".$this->organizer_key."/webinars/".$webinarKey."?oauth_token=".$this->access_token), true);
+		
+		if(isset($reponse['int_err_code']) and $reponse['int_err_code'] != '')
+		{
+			$this->set_access_token('');
+			$this->set_organizer_key('');				
+			throw new Exception($reponse['int_err_code']);
+		}
+		
+		return $reponse;
 	}
 	
 	/**

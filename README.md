@@ -76,6 +76,16 @@ To get registrants of a webinar
     	$citrix->pr($e->getMessage());
     }
 
+To get particular Webinar info
+
+    try
+    {
+        $webinar = $citrix->citrixonline_get_webinar('id_of_webinar') ;
+        $citrix->pr($webinar);
+    }catch (Exception $e) { 
+        $citrix->pr($e->getMessage());
+    }
+
 
 $citrix->pr() is Print_r convenience function. I have created two example files - login.php and api example.php. login.php shows you how to the lib to authorize user with your app. example.php show all api calls.
 
