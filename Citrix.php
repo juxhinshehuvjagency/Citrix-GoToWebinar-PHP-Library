@@ -365,7 +365,9 @@ class Citrix
 		$opts = self::$CURL_OPTS;
 		
 		$opts[CURLOPT_URL] = $url;	
-		
+      
+      curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
 		if(!empty($params))
 		{
 			foreach($params as $key=>$value):
