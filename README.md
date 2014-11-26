@@ -1,3 +1,5 @@
+[![Latest Stable Version](https://poser.pugx.org/wasilak/citrix-go-to-webinar-php/v/stable.svg)](https://packagist.org/packages/wasilak/citrix-go-to-webinar-php) [![Total Downloads](https://poser.pugx.org/wasilak/citrix-go-to-webinar-php/downloads.svg)](https://packagist.org/packages/wasilak/citrix-go-to-webinar-php) [![Latest Unstable Version](https://poser.pugx.org/wasilak/citrix-go-to-webinar-php/v/unstable.svg)](https://packagist.org/packages/wasilak/citrix-go-to-webinar-php) [![License](https://poser.pugx.org/wasilak/citrix-go-to-webinar-php/license.svg)](https://packagist.org/packages/wasilak/citrix-go-to-webinar-php)
+
 Citrix's GoToWebinar PHP Library
 ==========================
 
